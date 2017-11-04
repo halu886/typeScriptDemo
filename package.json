@@ -1,0 +1,20 @@
+{
+  "name": "typescriptdemo",
+  "version": "1.0.0",
+  "description": "学习typeScript的一个Demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "author": "halu",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.0",
+    "lite": "^4.0.5",
+    "lite-server": "^2.3.0"
+  }
+}
