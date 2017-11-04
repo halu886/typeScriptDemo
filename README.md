@@ -1,0 +1,2 @@
+# typeScriptDemo
+这是一个学习typeScript的一个Demo
