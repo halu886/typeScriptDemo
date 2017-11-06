@@ -197,5 +197,5 @@ class C {
 let c = new C();
 let clone = { ...c };
 clone.p
-clone.m();
+// clone.m();
 c.m()

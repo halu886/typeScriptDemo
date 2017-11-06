@@ -171,6 +171,6 @@ var C = /** @class */ (function () {
 var c = new C();
 var clone = __assign({}, c);
 clone.p;
-clone.m();
+// clone.m();
 c.m();
 //# sourceMappingURL=varDeclaration.js.map
