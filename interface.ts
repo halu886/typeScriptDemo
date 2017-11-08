@@ -148,12 +148,79 @@
 // }
 
 // 类静态部分与实例部分的区别
-interface ClockConstructor {
-    new(hour: number, minute: number);
-}
-class Clock implements ClockConstructor {
-    currentTime: Date;
-    constructor(h: number, m: number) { };
-    // new()
+// interface ClockConstructor {
+//     new(hour: number, minute: number);
+// }
+// class Clock implements ClockConstructor {
+//     currentTime: Date;
+//     constructor(h: number, m: number) { };
+//     // new()
 
-}
+// }
+
+// interface ClockConstructor {
+//     new(hour: number, minute: number): ClockInterface
+// }
+
+// interface ClockInterface {
+//     tick();
+// }
+
+// function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+//     return new ctor(hour, minute);
+// }
+
+// class DigitalClock implements ClockInterface {
+//     constructor(h: number, m: number) { }
+//     tick() {
+//         console.log('beep beep');
+//     }
+// }
+
+// // console.log('tests')
+// class AnalogClock implements ClockInterface {
+//     constructor(h: number, m: number) { }
+//     tick() {
+//         console.log('tick tock')
+//     }
+// }
+
+// let digital = createClock(DigitalClock, 12, 17);
+// let analog = createClock(AnalogClock, 7, 32);
+// // console.log(digital.tick(), analog.tick())
+// digital.tick();
+// analog.tick()
+
+
+// 继承接口
+// interface Shape {
+//     color: string
+// }
+
+// interface Squara extends Shape {
+//     sideLength: number
+// }
+
+// let squara = <Squara>{};
+// // let test = new squara()
+// squara.color = "blue";
+// squara.sideLength = 10;
+
+// interface Shape {
+//     color: string
+// }
+
+// interface PenStroke {
+//     penWidth: number
+// }
+
+// interface Squara extends Shape, PenStroke {
+//     sideLength: number
+// }
+
+// let squara = <Shape>{};
+// squara.color = "blue";
+// // squara.sideLength = 100;
+// squara.sideLength = 10;
+// squara.penWidth = 5.0
+// console.log(squara)
