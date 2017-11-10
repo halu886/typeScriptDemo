@@ -224,3 +224,48 @@
 // squara.sideLength = 10;
 // squara.penWidth = 5.0
 // console.log(squara)
+
+// // 混合类型
+// interface Counter {
+//     (start: number): string;
+//     interval: number;
+//     reset(): void;
+// }
+
+// function getCounter(): Counter {
+//     let counter = <Counter>function (start: number) { }
+//     counter.interval = 123;
+//     counter.reset = function () { };
+//     return counter;
+// }
+
+// let c = getCounter();
+// c(10);
+// c.reset();
+// c.interval = 5.0;
+
+// 接口继承类
+class Control {
+    private state: any
+}
+
+interface SelectableControl extends Control {
+    select: void;
+}
+
+class Button extends Control implements SelectableControl {
+    select() { };
+    // private state: any;
+}
+
+class TextBox extends Control {
+
+}
+
+class Image implements SelectableControl {
+    select() { }
+}
+
+class Location {
+
+}
