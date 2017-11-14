@@ -244,28 +244,28 @@
 // c.reset();
 // c.interval = 5.0;
 
-// 接口继承类
-class Control {
-    private state: any
-}
+// // 接口继承类
+// class Control {
+//     private state: any
+// }
 
-interface SelectableControl extends Control {
-    select: void;
-}
+// interface SelectableControl extends Control {
+//     select: void;
+// }
 
-class Button extends Control implements SelectableControl {
-    select() { };
-    // private state: any;
-}
+// class Button extends Control implements SelectableControl {
+//     select() { };
+//     // private state: any;
+// }
 
-class TextBox extends Control {
+// class TextBox extends Control {
 
-}
+// }
 
-class Image implements SelectableControl {
-    select() { }
-}
+// class Image implements SelectableControl {
+//     select() { }
+// }
 
-class Location {
+// class Location {
 
-}
+// }

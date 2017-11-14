@@ -3,16 +3,6 @@
  * @Date 2017/11/6
  * @author halu886
  */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 // //  接口初探
 // // function printLabel(labelledObj: { label: string }) {
 // //     console.log(labelledObj.label);
@@ -206,37 +196,22 @@ var __extends = (this && this.__extends) || (function () {
 // c(10);
 // c.reset();
 // c.interval = 5.0;
-// 接口继承类
-var Control = /** @class */ (function () {
-    function Control() {
-    }
-    return Control;
-}());
-var Button = /** @class */ (function (_super) {
-    __extends(Button, _super);
-    function Button() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Button.prototype.select = function () { };
-    ;
-    return Button;
-}(Control));
-var TextBox = /** @class */ (function (_super) {
-    __extends(TextBox, _super);
-    function TextBox() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return TextBox;
-}(Control));
-var Image = /** @class */ (function () {
-    function Image() {
-    }
-    Image.prototype.select = function () { };
-    return Image;
-}());
-var Location = /** @class */ (function () {
-    function Location() {
-    }
-    return Location;
-}());
+// // 接口继承类
+// class Control {
+//     private state: any
+// }
+// interface SelectableControl extends Control {
+//     select: void;
+// }
+// class Button extends Control implements SelectableControl {
+//     select() { };
+//     // private state: any;
+// }
+// class TextBox extends Control {
+// }
+// class Image implements SelectableControl {
+//     select() { }
+// }
+// class Location {
+// } 
 //# sourceMappingURL=interface.js.map
