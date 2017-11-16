@@ -254,30 +254,43 @@
 
 
 // 高级技巧
-// 构造函数
-class Greeter {
-    static standardGreeting = "Hello,there";
-    greeting: string;
-    // constructor(message: string) {
-    //     this.greeting = message;
-    // }
-    greet() {
-        if (this.greeting) {
-            return "Hello," + this.greeting;
-        } else {
-            return Greeter.standardGreeting;
-        }
-        // return "Hello," + this.greeting;
-    }
+// // 构造函数
+// class Greeter {
+//     static standardGreeting = "Hello,there";
+//     greeting: string;
+//     // constructor(message: string) {
+//     //     this.greeting = message;
+//     // }
+//     greet() {
+//         if (this.greeting) {
+//             return "Hello," + this.greeting;
+//         } else {
+//             return Greeter.standardGreeting;
+//         }
+//         // return "Hello," + this.greeting;
+//     }
 
+// }
+
+// let greeter: Greeter;
+// greeter = new Greeter();
+// console.log(greeter.greet());
+
+// let greetMaker: typeof Greeter = Greeter;
+// greetMaker.standardGreeting = "Hey there";
+
+// let greeter2: Greeter = new greetMaker();
+// console.log(greeter2.greet());
+
+
+// 把类当做接口使用
+class Point {
+    y: number;
+    x: number;
 }
 
-let greeter: Greeter;
-greeter = new Greeter();
-console.log(greeter.greet());
+interface Point3d extends Point {
+    z: number;
+}
 
-let greetMaker: typeof Greeter = Greeter;
-greetMaker.standardGreeting = "Hey there";
-
-let greeter2: Greeter = new greetMaker();
-console.log(greeter2.greet());
+let Point3d: Point3d = { x: 1, y: 2, z: 3 }
