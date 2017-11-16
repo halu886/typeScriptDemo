@@ -221,33 +221,63 @@
 //     }
 // }
 
-abstract class Department {
-    constructor(public name: string) {
+// abstract class Department {
+//     constructor(public name: string) {
 
+//     }
+
+//     printName(): void {
+//         console.log("Department name " + this.name);
+//     }
+
+//     abstract printMeeting(): void;
+// }
+
+// class AccountDepartment extends Department {
+//     constructor() {
+//         super('Accounting and Auditing')
+//     }
+//     generateReports(): void {
+//         console.log('Generating accounting reports……')
+//     }
+//     printMeeting(): void {
+//         console.log('The Accounting Department meets each Monday at 10am')
+//     }
+// }
+
+// let department: Department;
+// // department = new Department();
+// department = new AccountDepartment();
+// department.printName();
+// department.printMeeting();
+// // department.generateReports()
+
+
+// 高级技巧
+// 构造函数
+class Greeter {
+    static standardGreeting = "Hello,there";
+    greeting: string;
+    // constructor(message: string) {
+    //     this.greeting = message;
+    // }
+    greet() {
+        if (this.greeting) {
+            return "Hello," + this.greeting;
+        } else {
+            return Greeter.standardGreeting;
+        }
+        // return "Hello," + this.greeting;
     }
 
-    printName(): void {
-        console.log("Department name " + this.name);
-    }
-
-    abstract printMeeting(): void;
 }
 
-class AccountDepartment extends Department {
-    constructor() {
-        super('Accounting and Auditing')
-    }
-    generateReports(): void {
-        console.log('Generating accounting reports……')
-    }
-    printMeeting(): void {
-        console.log('The Accounting Department meets each Monday at 10am')
-    }
-}
+let greeter: Greeter;
+greeter = new Greeter();
+console.log(greeter.greet());
 
-let department: Department;
-// department = new Department();
-department = new AccountDepartment();
-department.printName();
-department.printMeeting();
-// department.generateReports()
+let greetMaker: typeof Greeter = Greeter;
+greetMaker.standardGreeting = "Hey there";
+
+let greeter2: Greeter = new greetMaker();
+console.log(greeter2.greet());
