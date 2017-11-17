@@ -284,13 +284,13 @@
 
 
 // 把类当做接口使用
-class Point {
-    y: number;
-    x: number;
-}
+// class Point {
+//     y: number;
+//     x: number;
+// }
 
-interface Point3d extends Point {
-    z: number;
-}
+// interface Point3d extends Point {
+//     z: number;
+// }
 
-let Point3d: Point3d = { x: 1, y: 2, z: 3 }
+// let Point3d: Point3d = { x: 1, y: 2, z: 3 }
