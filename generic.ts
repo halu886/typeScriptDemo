@@ -85,35 +85,35 @@
 // getProperty(x, 'm')
 
 
-// 泛型里使用类类型
-function create<T>(c: { new(): T; }): T {
-    return new c();
-}
+// // 泛型里使用类类型
+// function create<T>(c: { new(): T; }): T {
+//     return new c();
+// }
 
 
-class BeeKeeper {
-    hashMask: boolean;
-}
+// class BeeKeeper {
+//     hashMask: boolean;
+// }
 
-class ZooKeeper {
-    nameTag: string;
-}
+// class ZooKeeper {
+//     nameTag: string;
+// }
 
-class Animal {
-    numLegs: number;
-}
+// class Animal {
+//     numLegs: number;
+// }
 
-class Bee extends Animal {
-    keeper: BeeKeeper;
-}
+// class Bee extends Animal {
+//     keeper: BeeKeeper;
+// }
 
-class Loin extends Animal {
-    keeper: ZooKeeper;
-}
+// class Loin extends Animal {
+//     keeper: ZooKeeper;
+// }
 
-function createInstance<A extends Animal>(c: new () => A): A {
-    return new c()
-}
+// function createInstance<A extends Animal>(c: new () => A): A {
+//     return new c()
+// }
 
-createInstance(Loin).keeper.nameTag
-createInstance(Bee).keeper.hashMask
+// createInstance(Loin).keeper.nameTag
+// createInstance(Bee).keeper.hashMask
