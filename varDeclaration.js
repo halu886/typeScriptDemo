@@ -160,17 +160,14 @@ console.log(bothPlus);
 var defaults = { food: 'spicy', price: '$$', ambiance: "noisy" };
 var search = __assign({ food: 'rich' }, defaults);
 console.log(search);
-var C = /** @class */ (function () {
-    function C() {
-        this.p = 12;
-    }
-    C.prototype.m = function () {
-    };
-    return C;
-}());
-var c = new C();
-var clone = __assign({}, c);
-clone.p;
-// clone.m();
-c.m();
+// class C {
+//     p = 12;
+//     m() {
+//     }
+// }
+// let c = new C();
+// let clone = { ...c };
+// clone.p
+// // clone.m();
+// c.m()
 //# sourceMappingURL=varDeclaration.js.map

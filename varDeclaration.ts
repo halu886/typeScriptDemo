@@ -188,14 +188,14 @@ let defaults = { food: 'spicy', price: '$$', ambiance: "noisy" };
 let search = { food: 'rich', ...defaults }
 console.log(search)
 
-class C {
-    p = 12;
-    m() {
+// class C {
+//     p = 12;
+//     m() {
 
-    }
-}
-let c = new C();
-let clone = { ...c };
-clone.p
-// clone.m();
-c.m()
+//     }
+// }
+// let c = new C();
+// let clone = { ...c };
+// clone.p
+// // clone.m();
+// c.m()

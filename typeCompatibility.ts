@@ -175,53 +175,53 @@
 
 // console.log(padLeft("Hello World", true))
 
-interface Bird {
-    fly();
-    layEgg();
-}
+// interface Bird {
+//     fly();
+//     layEgg();
+// }
 
-interface Fish {
-    swim();
-    layEgg();
-}
+// interface Fish {
+//     swim();
+//     layEgg();
+// }
 
-function getSmallPet(): Fish | Bird {
-    var smallPet = {
-        fly() { },
-        layEgg() { }
-    }
-    return smallPet;
-}
+// function getSmallPet(): Fish | Bird {
+//     var smallPet = {
+//         fly() { },
+//         layEgg() { }
+//     }
+//     return smallPet;
+// }
 
-let pet = getSmallPet();
-pet.layEgg()
+// let pet = getSmallPet();
+// pet.layEgg()
 
-// if(pet.swim)
-if ((<Fish>pet).swim) {
-    (<Fish>pet).swim()
-} else {
-    (<Bird>pet).fly()
-}
+// // if(pet.swim)
+// if ((<Fish>pet).swim) {
+//     (<Fish>pet).swim()
+// } else {
+//     (<Bird>pet).fly()
+// }
 
 
-// 用户自定义的类型保护
-function isFish(pet: Fish | Bird): pet is Fish {
-    return (<Fish>pet).swim !== undefined;
-}
-if (isFish(pet)) {
-    pet.swim();
-} else {
-    pet.fly()
-}
+// // 用户自定义的类型保护
+// function isFish(pet: Fish | Bird): pet is Fish {
+//     return (<Fish>pet).swim !== undefined;
+// }
+// if (isFish(pet)) {
+//     pet.swim();
+// } else {
+//     pet.fly()
+// }
 
-// typeof类型保护
-function isNumber(x: any): x is number {
-    return typeof x === 'number';
-}
+// // typeof类型保护
+// function isNumber(x: any): x is number {
+//     return typeof x === 'number';
+// }
 
-function isString(x: any): x is string {
-    return typeof x === 'string';
-}
+// function isString(x: any): x is string {
+//     return typeof x === 'string';
+// }
 
 // function padLeft(value: string, paddding: string | number) {
 //     if (isNumber(paddding)) {
@@ -236,16 +236,103 @@ function isString(x: any): x is string {
 // isFish(new )
 // padLeft('test', 34)
 
-function padLeft(value: string, padding: string | number) {
-    if (typeof padding === 'number') {
-        return Array(padding + 1).join(" ") + value;
+// function padLeft(value: string, padding: string | number) {
+//     if (typeof padding === 'number') {
+//         return Array(padding + 1).join(" ") + value;
+//     }
+//     if (typeof padding === 'string') {
+//         return padding + value;
+//     }
+//     // padding
+//     throw new Error(`Expected string or number,got '${padding}'.`)
+// }
+
+
+
+// interface Padder {
+//     getPaddingString(): string
+// }
+
+// class SpaceRepeatingPadder implements Padder {
+//     constructor(private numSpaces: number) { }
+//     getPaddingString() {
+//         return Array(this.numSpaces + 1).join("")
+//     }
+// }
+
+// class StringPadder implements Padder {
+//     constructor(private value: string) { }
+//     getPaddingString() {
+//         return this.value;
+//     }
+// }
+
+// function getRandomPadder() {
+//     return Math.random() < 0.5 ?
+//         new SpaceRepeatingPadder(4) :
+//         new StringPadder(" ")
+// }
+
+// let padder: Padder = getRandomPadder();
+
+// if (padder instanceof SpaceRepeatingPadder) {
+//     padder;
+// }
+
+// if (padder instanceof StringPadder) {
+//     padder
+// }
+
+// // 可以为null的类型
+// let s = "foo";
+// s = null;
+// let sn: string | null = "bar";
+// sn = null;
+// sn = undefined;
+
+// // 可选参数和可选参数
+// function f(x: number, y?: number) {
+//     return x + (y || 0);
+// }
+// console.log(f(1, 2), f(1), f(1, undefined))
+
+// class C {
+//     a: number;
+//     b?: number;
+// }
+
+// let c = new C();
+// c.a = 12;
+// // c.a = undefined;
+// c.b = 13;
+// c.b = undefined;
+// c.b = null;
+
+
+// 类型保护和类型断言
+// function f(sn: string | null): string {
+//     if (sn == null) {
+//         return "defalt"
+//     } else {
+//         return sn;
+//     }
+// }
+
+// function broken(name: string | null): string {
+//     function postfix(epither: string) {
+//         return name.charAt(0) + '. the ' + epither;
+//     }
+//     name = name || 'Bob';
+//     return postfix("great")
+// }
+
+function fixed(name: string | null): string {
+    function postfix(epither: string) {
+        return name!.charAt(0) + '. the ' + epither;
     }
-    if (typeof padding === 'string') {
-        return padding + value;
-    }
-    // padding
-    throw new Error(`Expected string or number,got '${padding}'.`)
+    name = name || "Bob";
+    return postfix("greate")
 }
 
 
-
+console.log(fixed(null));
