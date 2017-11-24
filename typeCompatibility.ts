@@ -326,13 +326,105 @@
 //     return postfix("great")
 // }
 
-function fixed(name: string | null): string {
-    function postfix(epither: string) {
-        return name!.charAt(0) + '. the ' + epither;
-    }
-    name = name || "Bob";
-    return postfix("greate")
+// function fixed(name: string | null): string {
+//     function postfix(epither: string) {
+//         return name!.charAt(0) + '. the ' + epither;
+//     }
+//     name = name || "Bob";
+//     return postfix("greate")
+// }
+
+
+// console.log(fixed(null));
+
+// type Name = string;
+// type nameResolver = () => string;
+// type NameOrResolver = Name | nameResolver;
+// function getName(n: NameOrResolver): Name {
+//     if (typeof n === 'string') {
+//         return n;
+//     } else {
+//         return n();
+//     }
+// }
+
+// type Container<T> = { value: T }
+
+// type Tree<T> = {
+//     value: T;
+//     left: Tree<T>;
+//     right: Tree<T>;
+// }
+
+// type LinkedList<T> = T & { next: LinkedList<T> }
+// // type Tree<T> = {
+// //     value: T;
+// // }
+// interface Person {
+//     name: string
+// }
+
+// // var people: LinkedList<Person>;
+// // var s = people.name;
+// // s = people.next.next.next.name
+
+// // type Yikes = Array<Yikes>
+
+// // 接口VS类型别名
+// type Alias = { num: number };
+// interface Interface {
+//     num: number
+// }
+// declare function aliased(arg: Alias): Alias;
+// declare function interfaced(arg: Interface): Interface
+
+// type Easing = "ease-in" | "ease-out" | "ease-in-out";
+// class UIElement {
+//     aimate(dx: number, dy: number, easing: Easing) {
+//         if (easing === "ease-in") {
+//             console.log(easing)
+//         } else if (easing === "ease-out") {
+//             console.log(easing)
+//         } else {
+//             console.log(easing)
+//         }
+//     }
+// }
+// // (new UIElement()).aimate(1, 2, 'unease')?
+// function createElement(tagName: 'img'): HTMLElement;
+// function createElement(tagName: 'input'): HTMLElement;
+// function createElement(tagName: string): Element { return new Element() }
+
+// function rollDie(): 1 | 2 | 3 | 4 | 5 {
+//     return 1;
+// }
+
+// function foo(x: number) {
+//     if (x != 1 || x != 2) { }
+// }
+
+
+interface Square {
+    kind: "square";
+    size: "number"
 }
 
+interface Rectangle {
+    kind: "rectangle";
+    width: number;
+    height: number;
+}
+interface Circle {
+    kind: "circle",
+    radius: number
+}
 
-console.log(fixed(null));
+type Shape = Square | Rectangle | Circle;
+
+function area(s: Shape) {
+    switch (s.kind) {
+        case "square": return s.size * s.size;
+        case "rectangle": return s.height * s.height
+        case "circle": return Math.PI * s.radius ** 2;
+    }
+}
