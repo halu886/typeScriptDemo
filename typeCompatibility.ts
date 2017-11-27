@@ -404,27 +404,167 @@
 // }
 
 
-interface Square {
-    kind: "square";
-    size: "number"
+// interface Square {
+//     kind: "square";
+//     size: "number"
+// }
+
+// interface Rectangle {
+//     kind: "rectangle";
+//     width: number;
+//     height: number;
+// }
+// interface Circle {
+//     kind: "circle",
+//     radius: number
+// }
+
+// type Shape = Square | Rectangle | Circle;
+
+// function area(s: Shape) {
+//     switch (s.kind) {
+//         case "square": return s.size * s.size;
+//         case "rectangle": return s.height * s.height
+//         case "circle": return Math.PI * s.radius ** 2;
+//     }
+// }
+// interface Square {
+//     kind: "square";
+//     size: "number"
+// }
+
+// interface Rectangle {
+//     kind: "rectangle";
+//     width: number;
+//     height: number;
+// }
+// interface Circle {
+//     kind: "circle",
+//     radius: number
+// }
+// interface Triangle {
+//     kind: 'triangle'
+// }
+// type Shape = Square | Rectangle | Circle | Triangle;
+
+// function assertNever(x: never): never {
+//     throw new Error("Unexpected object:" + x);
+// }
+
+// function area(s: Shape) {
+//     switch (s.kind) {
+//         case "square": return s.size * s.size;
+//         case "rectangle": return s.height * s.height
+//         case "circle": return Math.PI * s.radius ** 2;
+//         case "triangle": return 1;  
+//         default: return assertNever(s)
+//     }
+// }
+
+// interface Type {
+//     typeName: string
+// }
+// let b: any = {
+//     a: 1
+// }
+
+// // let a: Type = b;
+// type A = keyof Type;
+// // let c: A =''
+// let d = 'a';
+// console.log()
+
+// class a {
+//     a,
+//     b,
+//     c
+// }
+
+// for (let x in a)
+//     console.log(x)
+
+
+// class BasicCalculator {
+//     public constructor(protected value: number = 0) { }
+//     public currentValue(): number {
+//         return this.value;
+//     };
+//     public add(operand: number): this {
+//         this.value += operand;
+//         return this;
+//     }
+//     public multiply(operand: number): this {
+//         this.value *= operand;
+//         return this;
+//     }
+// }
+
+// class ScientificCalculator extends BasicCalculator {
+//     public constructor(value = 0) {
+//         super(value)
+//     }
+//     public sin() {
+//         this.value = Math.sin(this.value);
+//         return this;
+//     }
+// }
+
+// let v = new ScientificCalculator(2).multiply(5).sin().add(1).currentValue();
+
+// 索引类型
+// function pluck(o, name) {
+//     return name.map(n => o[n])
+// }
+
+// function pluck<T, k extends keyof T>(o: T, name: k[]): T[k][] {
+//     return name.map(n => o[n])
+// }
+// interface Person {
+//     name: string;
+//     age: number
+// }
+
+// let person: Person = {
+//     name: "Jarid",
+//     age: 35
+// }
+
+// let strings: string[] = pluck(person, ['name']);
+// console.log(strings)
+
+
+// interface Map<T> {
+//     [key: string]: T;
+// }
+
+// let keys: keyof Map<number>;
+// // let a: number = 123;
+// let value: Map<number>['asdf'];
+
+
+// 映射类型
+interface Person {
+    name: string;
+    age: number;
 }
 
-interface Rectangle {
-    kind: "rectangle";
-    width: number;
-    height: number;
-}
-interface Circle {
-    kind: "circle",
-    radius: number
+
+type PartialPersonType = {[P in keyof Person]?: Person[P]};
+
+
+type ReadonlyType<T> = {
+    readonly [P in keyof T]: T[P];
 }
 
-type Shape = Square | Rectangle | Circle;
-
-function area(s: Shape) {
-    switch (s.kind) {
-        case "square": return s.size * s.size;
-        case "rectangle": return s.height * s.height
-        case "circle": return Math.PI * s.radius ** 2;
-    }
+type PartialType<T> = {
+    [P in keyof T]?: T[P];
 }
+
+type PersonPartial = PartialType<Person>;
+
+type ReadonlyPerson = ReadonlyType<Person>;
+
+type keys = 'option1' | 'option2';
+type Flags = {[K in keys]: boolean}
+
+type NullablePerson = {[P in keyof Person]: Person[P] | null}
