@@ -176,11 +176,11 @@
 // console.log(sumMatrix([[1, 2, 3], [1, 2, 3]]))
 // 块级作用域变量的获取
 function theCityThatAlwaysSleeps() {
-    var getCity;
+    let getCity;
     if (true) {
-        var city_1 = "Seattle";
+        let city = "Seattle";
         getCity = function () {
-            return city_1;
+            return city;
         };
     }
     return getCity();
