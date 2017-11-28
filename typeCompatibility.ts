@@ -568,3 +568,40 @@ type keys = 'option1' | 'option2';
 type Flags = {[K in keys]: boolean}
 
 type NullablePerson = {[P in keyof Person]: Person[P] | null}
+
+type Prox<T> = {
+    get(): T;
+    set(value: T): void;
+}
+type Proxify<T> = {
+    [P in keyof T]: Prox<T[P]>;
+}
+
+function proxify<T>(o: T): Proxify<T> {
+    // return o
+}
+let prop = { a: 1, b: 2 }
+let proxyProps = proxify(prop);
+// proxyProps.a.get
+
+// type PickTest<T, K extends keyof T> = {
+//     [P in K]: T[P]
+// }
+
+// type RecordTest<K extends string, T> = {
+//     [P in K]: T;
+// }
+
+// type ThreeStringProps = RecordTest<'prop1' | 'prop2' | 'prop3', string>
+
+
+// 对映射进行推断
+function unproxify<T>(t: Proxify<T>): T {
+    let result = {} as T;
+    for (const k in t) {
+        result[k] = t[k].get();
+    }
+    return result;
+}
+
+let originalProps = unproxify(proxyProps);
