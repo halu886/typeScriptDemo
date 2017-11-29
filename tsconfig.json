@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "module": "commonjs",
-        // "module": "amd",
+        // "module": "commonjs",
+        // "module": "ES2015",
+        "module": "es6",
         "sourceMap": true,
         "strictNullChecks": true
     },
