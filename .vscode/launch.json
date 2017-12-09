@@ -8,7 +8,7 @@
             "name": "启动",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/module/AMD-RequireJS SimpleModule.js",
+            "program": "${workspaceRoot}/nameSpace/Test.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceFolder}",

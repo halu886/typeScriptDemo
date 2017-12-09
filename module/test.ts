@@ -7,12 +7,13 @@
 //     console.log(`"${s}" ${validate(s) ? " matches" : " does not match"}`);
 // });
 
-import zip = require('./zipCodeValidator')
+// import zip = require('./zipCodeValidator')
+// import { ZipCodeValidator } from "./ZipCodeValidator";
 
-let strings = ["Hello", "98052", "101"]
+// let strings = ["Hello", "98052", "101"]
 
-let validator = new zip()
+// let validator = new ZipCodeValidator()
 
-strings.forEach(s => {
-    console.log(`"${s}"-${validator.isAcceptable(s) ? "matches" : "does not match"}`)
-})
+// strings.forEach(s => {
+//     console.log(`"${s}"-${validator.isAcceptable(s) ? "matches" : "does not match"}`)
+// })

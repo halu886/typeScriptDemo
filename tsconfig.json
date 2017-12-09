@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
         "target": "es6",
-        // "module": "commonjs",
+        "module": "commonjs",
         // "module": "ES2015",
-        "module": "es6",
+        // "module": "es6",
+        // "module": "amd",
         "sourceMap": true,
         "strictNullChecks": true
+        // "outfile": "sample.js"
     },
     "exclude": [
         "node_modules",
