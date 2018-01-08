@@ -213,5 +213,5 @@
 //     select() { }
 // }
 // class Location {
-// } 
+// }
 //# sourceMappingURL=interface.js.map

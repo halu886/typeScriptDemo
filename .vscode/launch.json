@@ -8,7 +8,7 @@
             "name": "启动",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/declarationMerge/namespaceClassMerge.js",
+            "program": "${workspaceRoot}/function.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceFolder}",

@@ -16,7 +16,11 @@
     "concurrently": "^3.5.0",
     "lite": "^4.0.5",
     "lite-server": "^2.3.0",
+    "reflect-metadata": "^0.1.10",
     "request": "^2.83.0",
     "requirejs": "^2.3.5"
+  },
+  "devDependencies": {
+    "@types/reflect-metadata": "^0.1.0"
   }
 }

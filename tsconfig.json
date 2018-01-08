@@ -6,7 +6,8 @@
         // "module": "es6",
         // "module": "amd",
         "sourceMap": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "experimentalDecorators": true
         // "outfile": "sample.js"
     },
     "exclude": [

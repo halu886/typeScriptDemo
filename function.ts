@@ -116,8 +116,38 @@ function pickCard(x): any {
 
 let myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }];
 let pickedCard1 = myDeck[pickCard(myDeck)];
-console.log("card:" + pickedCard1.card + " of " + pickedCard1.suit);
+// console.log("card:" + pickedCard1.card + " of " + pickedCard1.suit);
 let pickedCard2 = pickCard(15);
-console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
+// console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
 
 // pickCard('asdfasdf')
+
+import 'reflect-metadata'
+// Reflect.getMetadata()
+// Reflect.metadata(...)
+// @classDecorator
+class Greeter {
+    @format("Hello,%s")
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message
+    }
+
+    // @enumerable(false)
+    greet() {
+        return "Hello," + this.greeting;
+    }
+}
+
+const formatMetadataKey = Symbol("format");
+function format(formatString: string) {
+    return Reflect.metadata(formatMetadataKey, formatString);
+
+}
+
+function getFormat(target: any, propertyKey: string) {
+    return Reflect.getMetadata(formatMetadataKey, target, propertyKey)
+}
+
+let a = new Greeter('test');
+console.log(a.greet());
