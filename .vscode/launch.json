@@ -8,7 +8,7 @@
             "name": "启动",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/function.js",
+            "program": "${workspaceRoot}/reflect.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceFolder}",

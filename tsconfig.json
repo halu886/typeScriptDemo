@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es2015",
         "module": "commonjs",
         // "module": "ES2015",
         // "module": "es6",
         // "module": "amd",
         "sourceMap": true,
         "strictNullChecks": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
         // "outfile": "sample.js"
     },
     "exclude": [

@@ -126,20 +126,43 @@ import 'reflect-metadata'
 // Reflect.getMetadata()
 // Reflect.metadata(...)
 // @classDecorator
+const formatMetadataKey = Symbol("format");
+const requireMetadataKey = Symbol("required");
 class Greeter {
-    @format("Hello,%s")
+    // @format("Hello,%s")
     greeting: string;
     constructor(message: string) {
         this.greeting = message
     }
 
     // @enumerable(false)
-    greet() {
-        return "Hello," + this.greeting;
+    @validate
+    greet( @required name: string) {
+        return "Hello," + name + "," + this.greeting;
     }
 }
 
-const formatMetadataKey = Symbol("format");
+function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {
+    let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requireMetadataKey, target, propertyKey) || [];
+    existingRequiredParameters.push(parameterIndex);
+    Reflect.defineMetadata(requireMetadataKey, existingRequiredParameters, target, propertyKey);
+}
+
+function validate(target: any, propertyName: string, description: TypedPropertyDescriptor<Function>) {
+    let method = description.value;
+    description.value = function () {
+        let requiredParameters: number[] = Reflect.getOwnMetadata(requireMetadataKey, target, propertyName);
+        if (requiredParameters) {
+            for (let parameterIndex of requiredParameters) {
+                if (parameterIndex >= arguments.length || arguments[parameterIndex] == undefined) {
+                    throw new Error("Missing required argument");
+                }
+            }
+        }
+        return (<Function>method).apply(this, arguments);
+    }
+}
+
 function format(formatString: string) {
     return Reflect.metadata(formatMetadataKey, formatString);
 
@@ -150,4 +173,4 @@ function getFormat(target: any, propertyKey: string) {
 }
 
 let a = new Greeter('test');
-console.log(a.greet());
+console.log(a.greet('test'));
