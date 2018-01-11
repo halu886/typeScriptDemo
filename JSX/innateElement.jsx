@@ -1,4 +1,4 @@
-"use strict";
-(<foo>
-    asdfasdf
-</foo>);
+// "use strict";
+// (<foo>
+//     asdfasdf
+// </foo>);

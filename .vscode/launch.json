@@ -8,7 +8,7 @@
             "name": "启动",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/reflect.js",
+            "program": "${workspaceRoot}/mixins/index.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceFolder}",
