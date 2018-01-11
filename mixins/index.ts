@@ -16,7 +16,7 @@ class Activatable {
     }
 }
 
-class SmartObject implements Disposableu {
+class SmartObject implements Disposable, Activatable {
     constructor() {
         setInterval(() => console.log(this.isActive + ":" + this.isDisposed), 5);
     }
